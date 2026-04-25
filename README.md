@@ -1,0 +1,173 @@
+# Rosepetal Research
+
+**Applied AI research for industrial visual inspection, process understanding, and edge-ready quality control.**
+
+Rosepetal Research is the research department of **Rosepetal AI**, focused on developing next-generation computer vision and multimodal AI systems for manufacturing environments.
+
+Our mission is to bridge the gap between cutting-edge AI research and real industrial deployment: models that are accurate, explainable, data-efficient, and efficient enough to run in production lines, close to the machines, cameras, operators, and quality teams that use them every day.
+
+---
+
+## Research Mission
+
+Industrial quality control is not a generic computer vision problem.
+
+Manufacturing environments introduce constraints that standard AI systems often fail to handle properly. Rosepetal Research exists to design AI systems that understand these constraints from the beginning.
+
+We work on architectures, datasets, training strategies, evaluation methods, and deployment patterns that make advanced AI usable in real factories.
+
+---
+
+## Current Research Projects
+
+Rosepetal Research currently maintains three active research projects.
+
+| Project | Focus | Repository |
+|---|---|---|
+| **RP-ForgeVL** | Few-shot grounded multimodal industrial visual inspection | [rosepetal-research-RP-ForgeVL](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) |
+| **RP-DETR** | Real-time anomaly detection for high-resolution manufacturing inspection | [rosepetal-research-RP-DETR](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) |
+| **RP-ProcessLens** | Vision-based process verification from manufacturing video | [rosepetal-research-RP-ProcessLens](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) |
+
+---
+
+## Projects
+
+### RP-ForgeVL
+
+[**RP-ForgeVL**](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) is a research-oriented project for **few-shot grounded multimodal industrial visual inspection**.
+
+The project explores how inspection models can learn acceptance criteria from a small set of reference examples:
+
+- **OK samples** that define acceptable variation.
+- **NOK samples** that describe known defects.
+- Localization annotations such as:
+  - Bounding boxes.
+  - Oriented bounding boxes.
+  - Polygons.
+  - Segmentation masks.
+
+The goal is to move beyond traditional supervised inspection pipelines that require large quantities of annotated defect data. Instead, RP-ForgeVL investigates models that can reason from examples, visual references, defect descriptions, and grounded annotations.
+
+#### Key Research Questions
+
+- How can a model learn what is acceptable from a small set of OK samples?
+- How can textual defect descriptions improve visual inspection?
+- How can multimodal models ground defects in industrial images?
+- How can few-shot inspection be made reliable enough for production use?
+- How can quality teams supervise, correct, and refine model behavior efficiently?
+
+#### Research Direction
+
+RP-ForgeVL is especially relevant for industrial cases where defects are rare, expensive to reproduce, or difficult to annotate exhaustively. It aims to reduce the amount of data needed to deploy new inspections while preserving traceability and human supervision.
+
+---
+
+### RP-DETR
+
+[**RP-DETR**](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) is a real-time anomaly detection architecture for manufacturing.
+
+The project focuses on detecting tiny defects in high-resolution industrial images by combining two complementary stages:
+
+1. **Fast full-image scanning**  
+   The model first processes the complete image using an efficient low-cost pass to identify suspicious regions.
+
+2. **High-resolution focused inspection**  
+   Only the suspicious regions are then inspected at higher resolution, reducing unnecessary computation while preserving sensitivity to small defects.
+
+RP-DETR also introduces a **normality-verification stage** using OK samples to reduce false positives. This is particularly important in manufacturing, where acceptable variation can be large and false rejects can create significant operational cost.
+
+#### Key Research Questions
+
+- How can we detect very small defects without processing the entire image at maximum resolution?
+- How can DETR-style architectures be adapted for industrial anomaly detection?
+- How can OK references be used to verify whether a suspicious region is truly defective?
+- How can the model remain fast enough for inline inspection?
+- How can anomaly detection be scaled to large OK/NOK industrial datasets?
+
+#### Research Direction
+
+RP-DETR targets production lines where high-resolution inspection is required but full-resolution inference is too expensive. The project is designed for inline quality control scenarios where latency, throughput, and false-positive control are critical.
+
+---
+
+### RP-ProcessLens
+
+[**RP-ProcessLens**](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) is a vision-based AI system for **quality control of manufacturing processes**.
+
+While many inspection systems focus only on the final product, RP-ProcessLens focuses on the process itself. It analyzes manufacturing video to verify whether operators, tools, machines, and parts follow the expected production procedure.
+
+The system is designed to detect and explain deviations such as:
+
+- Missed steps.
+- Wrong tool usage.
+- Incorrect operator-machine interaction.
+- Abnormal timing.
+- Unsafe operations.
+- Unexpected process sequences.
+- Missing or misplaced components during assembly.
+
+#### Key Research Questions
+
+- How can video models understand manufacturing procedures over time?
+- How can an AI system compare observed actions with an expected process?
+- How can process deviations be detected early, before they become product defects?
+- How can evidence be presented in a way that is useful for quality teams?
+- How can process monitoring remain privacy-conscious, traceable, and robust?
+
+#### Research Direction
+
+RP-ProcessLens expands Rosepetal’s research scope from product inspection to process intelligence. The goal is to provide quality teams with actionable, timestamped evidence that helps detect issues earlier and improve process reliability.
+
+---
+
+## Research Themes
+
+Across all projects, Rosepetal Research focuses on several shared technical themes.
+
+### Data-Efficient Learning
+
+Industrial defect data is scarce, imbalanced, and often expensive to annotate. We research methods that reduce the data required to build useful inspection systems, including few-shot learning, reference-based learning, OK-sample modeling, and human-supervised auto-labeling.
+
+### Grounded and Explainable Inspection
+
+Quality teams need to know not only whether a sample is OK or NOK, but also why. Our systems aim to provide grounded evidence: regions, masks, examples, scores, comparisons, and explanations that can be reviewed by humans.
+
+### High-Resolution Visual Understanding
+
+Many manufacturing defects are small, subtle, or local. Rosepetal Research investigates architectures that can reason over large images while preserving detail where it matters.
+
+### Real-Time and Edge Deployment
+
+Industrial AI must work under real production constraints. Research prototypes are designed with deployment in mind: latency, memory, GPU utilization, multi-camera operation, and robustness on edge hardware.
+
+### Human-in-the-Loop Quality Control
+
+Rosepetal Research does not assume that AI replaces quality experts. Instead, we design systems where operators, technicians, and quality engineers can supervise, correct, validate, and improve AI behavior over time.
+
+### Process-Aware AI
+
+Beyond isolated image classification, manufacturing requires understanding sequences, operations, timing, tools, and context. RP-ProcessLens extends our work toward video-based process verification and operational intelligence.
+
+---
+
+## Research-to-Product Philosophy
+
+Rosepetal Research is applied by design.
+
+A research idea is valuable when it can eventually improve real inspection systems, reduce deployment time, increase reliability, or give quality teams better tools.
+
+Our research workflow follows four principles:
+
+1. **Start from real industrial constraints**  
+   Every project begins with the realities of production: cameras, lighting, cycle time, edge hardware, operator workflows, and customer data.
+
+2. **Prototype scientifically**  
+   We validate ideas through controlled experiments, datasets, metrics, and ablation studies.
+
+3. **Design for transfer**  
+   Architectures and training methods should be compatible with Rosepetal’s broader platform, datasets, edge inference stack, and Rosepetal Flows.
+
+4. **Preserve traceability**  
+   Industrial AI decisions must be auditable. Models should produce outputs that can be reviewed, compared, and improved.
+
+---
