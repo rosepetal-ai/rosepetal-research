@@ -20,13 +20,14 @@ We work on architectures, datasets, training strategies, evaluation methods, and
 
 ## Current Research Projects
 
-Rosepetal Research currently maintains three active research projects.
+Rosepetal Research currently maintains four active research projects.
 
 | Project | Focus | Repository |
 |---|---|---|
 | **RP-ForgeVL** | Few-shot grounded multimodal industrial visual inspection | [rosepetal-research-RP-ForgeVL](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) |
 | **RP-DETR** | Real-time anomaly detection for high-resolution manufacturing inspection | [rosepetal-research-RP-DETR](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) |
 | **RP-ProcessLens** | Vision-based process verification from manufacturing video | [rosepetal-research-RP-ProcessLens](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) |
+| **RP-IAD** | Large-scale industrial anomaly detection dataset construction | [rosepetal-research-RP-IAD](https://github.com/rosepetal-ai/rosepetal-research-RP-IAD) |
 
 ---
 
@@ -117,6 +118,34 @@ The system is designed to detect and explain deviations such as:
 #### Research Direction
 
 RP-ProcessLens expands Rosepetal’s research scope from product inspection to process intelligence. The goal is to provide quality teams with actionable, timestamped evidence that helps detect issues earlier and improve process reliability.
+
+---
+
+### RP-IAD
+
+[**RP-IAD**](https://github.com/rosepetal-ai/rosepetal-research-RP-IAD) is a research project focused on the **construction of a large-scale industrial anomaly detection dataset**.
+
+Most public anomaly detection benchmarks are built from a small number of object categories, limited defect variability, and controlled acquisition conditions. RP-IAD aims to build a dataset that better reflects the realities of industrial inspection:
+
+- A wide range of materials, parts, and product categories.
+- Diverse defect types, scales, and appearances.
+- Realistic acquisition conditions, including varying lighting, angles, and resolutions.
+- OK and NOK samples curated to represent acceptable variation and known failure modes.
+- Localization annotations suitable for detection, segmentation, and grounded inspection.
+
+The project covers the full dataset lifecycle: acquisition protocols, annotation methodology, quality assurance, structure, splits, and release format.
+
+#### Key Research Questions
+
+- What characteristics should an industrial anomaly detection dataset have to support real deployment, not just academic benchmarking?
+- How can OK variability be captured systematically across many product categories?
+- How can annotations remain consistent across diverse defect types and inspection contexts?
+- How can the dataset support multiple research directions, including few-shot, grounded, and high-resolution inspection?
+- How can dataset construction itself be made traceable, reproducible, and extensible?
+
+#### Research Direction
+
+RP-IAD provides the data foundation for the rest of Rosepetal Research. It is designed to feed into [RP-ForgeVL](#rp-forgevl), [RP-DETR](#rp-detr), and future inspection models, ensuring that architectural research is evaluated under conditions that resemble real manufacturing rather than idealized benchmarks.
 
 ---
 
