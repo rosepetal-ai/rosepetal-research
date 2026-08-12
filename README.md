@@ -20,22 +20,76 @@ We work on architectures, datasets, training strategies, evaluation methods, and
 
 ## Current Research Projects
 
-Rosepetal Research currently maintains four active research projects.
+Rosepetal Research currently maintains six active research projects.
 
-| Project | Focus | Repository |
-|---|---|---|
-| **RP-ForgeVL** | Few-shot grounded multimodal industrial visual inspection | [rosepetal-research-RP-ForgeVL](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) |
-| **RP-DETR** | Real-time anomaly detection for high-resolution manufacturing inspection | [rosepetal-research-RP-DETR](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) |
-| **RP-ProcessLens** | Vision-based process verification from manufacturing video | [rosepetal-research-RP-ProcessLens](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) |
-| **RP-IAD** | Large-scale industrial anomaly detection dataset construction | [rosepetal-research-RP-IAD](https://github.com/rosepetal-ai/rosepetal-research-RP-IAD) |
+| Project | Focus | Repository | Status |
+|---|---|---|---|
+| **Detector-to-Scout Distillation** | Distilling box-supervised defect detectors into compact image-level anomaly scouts | [rosepetal-research-detector-to-scout-distillation](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) | Public |
+| **Selective Inspection** | Risk-calibrated weak supervision for efficient industrial visual inspection | [rosepetal-research-selective-inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Public |
+| **RP-ForgeVL** | Few-shot grounded multimodal industrial visual inspection | [rosepetal-research-RP-ForgeVL](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) | Public release soon |
+| **RP-DETR** | Real-time anomaly detection for high-resolution manufacturing inspection | [rosepetal-research-RP-DETR](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) | Public release soon |
+| **RP-ProcessLens** | Vision-based process verification from manufacturing video | [rosepetal-research-RP-ProcessLens](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) | Public release soon |
+| **RP-IAD** | Large-scale industrial anomaly detection dataset construction | [rosepetal-research-RP-IAD](https://github.com/rosepetal-ai/rosepetal-research-RP-IAD) | Public release soon |
+
+Repositories marked *Public release soon* are currently private and will be published publicly shortly.
 
 ---
 
 ## Projects
 
+### Detector-to-Scout Distillation
+
+[**Detector-to-Scout Distillation**](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) is the companion code repository for the paper *"Boxes to Scores: Distilling Box-Supervised Defect Detectors into Compact Image-Level Anomaly Scouts"*.
+
+Industrial inspection lines ultimately need one image-level decision — pass or flag — yet the most accurate defect models are box-supervised detectors: annotation-hungry to train and larger than the deployment slot they must fill. This project implements a recipe for transferring the knowledge inside such a detector **across tasks**: from box-level detection into a compact student that outputs only an image-level anomaly score and runs without its teacher.
+
+The pipeline has three stages:
+
+1. **Target construction**: cached teacher predictions are converted into per-image pseudo-box target records.
+2. **Distillation training**: Hungarian matching assigns targets to the student's queries; matched-query losses plus an image-label BCE train a compact multi-scale transformer student ("RT-Scout", 6.81 M parameters).
+3. **Teacher-free deployment**: one forward pass, one scalar anomaly score, with ONNX export for edge inference.
+
+#### Key Research Questions
+
+- How can box-level detection knowledge be distilled into an image-level scoring task?
+- How small can a student be while preserving the teacher's ranking of defective images?
+- How can pseudo-box supervision train useful representations without deployed detection heads?
+- How can distilled scouts fit real deployment slots on inline inspection hardware?
+
+#### Research Direction
+
+Detector-to-Scout Distillation targets deployments where a full detector is too heavy for the available compute budget, but its accumulated knowledge should not be discarded. It connects naturally with [Selective Inspection](#selective-inspection), which studies where such compact scouts fit in an inspection cascade.
+
+---
+
+### Selective Inspection
+
+[**Selective Inspection**](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) is the companion code repository for the paper *"Learning When Not to Inspect: Risk-Calibrated Weak Supervision for Efficient Industrial Visual Inspection"*.
+
+Most inline production images are normal. This project implements a risk-calibrated selective-inspection cascade — the pieces a production line needs to *spend compute only where suspicion remains*:
+
+1. **A weak scout**: a lightweight image scorer trained from **image-level OK/NOK labels only** — no boxes, no masks — the labels a production line accumulates first.
+2. **A risk-calibrated Fast-OK-Exit gate**: an exit threshold calibrated on validation data to keep wrongly-exited NOK images within an operator-chosen missed-NOK budget. Images scoring below it are admitted OK on the spot and bypass all downstream compute.
+3. **A split-conformal accept/review/reject decision layer**: thresholds derived from validation OK scores, with a finite-sample guarantee on the OK-rejection rate.
+
+The expensive inspector model is deliberately pluggable: any callable that maps an image to an anomaly score works unchanged. All deployment knobs — exit budget, decision-layer strictness, inspector choice — are post-hoc and reconfigure a deployed line without retraining.
+
+#### Key Research Questions
+
+- How can a production line safely skip inspection for the majority of clearly normal images?
+- How can exit thresholds carry explicit, operator-chosen risk budgets?
+- How can conformal methods provide finite-sample guarantees on inspection decisions?
+- How can cascade behavior be reconfigured post-hoc, without retraining?
+
+#### Research Direction
+
+Selective Inspection addresses the compute economics of inline inspection: expensive models should only run where they add value. Combined with compact scouts from [Detector-to-Scout Distillation](#detector-to-scout-distillation), it defines a full efficiency-oriented inspection cascade.
+
+---
+
 ### RP-ForgeVL
 
-[**RP-ForgeVL**](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) is a research-oriented project for **few-shot grounded multimodal industrial visual inspection**.
+[**RP-ForgeVL**](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) is a research-oriented project for **few-shot grounded multimodal industrial visual inspection**. *The repository is currently private and will be published publicly soon.*
 
 The project explores how inspection models can learn acceptance criteria from a small set of reference examples:
 
@@ -65,7 +119,7 @@ RP-ForgeVL is especially relevant for industrial cases where defects are rare, e
 
 ### RP-DETR
 
-[**RP-DETR**](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) is a real-time anomaly detection architecture for manufacturing.
+[**RP-DETR**](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) is a real-time anomaly detection architecture for manufacturing. *The repository is currently private and will be published publicly soon.*
 
 The project focuses on detecting tiny defects in high-resolution industrial images by combining two complementary stages:
 
@@ -93,7 +147,7 @@ RP-DETR targets production lines where high-resolution inspection is required bu
 
 ### RP-ProcessLens
 
-[**RP-ProcessLens**](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) is a vision-based AI system for **quality control of manufacturing processes**.
+[**RP-ProcessLens**](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) is a vision-based AI system for **quality control of manufacturing processes**. *The repository is currently private and will be published publicly soon.*
 
 While many inspection systems focus only on the final product, RP-ProcessLens focuses on the process itself. It analyzes manufacturing video to verify whether operators, tools, machines, and parts follow the expected production procedure.
 
@@ -123,7 +177,7 @@ RP-ProcessLens expands Rosepetal’s research scope from product inspection to p
 
 ### RP-IAD
 
-[**RP-IAD**](https://github.com/rosepetal-ai/rosepetal-research-RP-IAD) is a research project focused on the **construction of a large-scale industrial anomaly detection dataset**.
+[**RP-IAD**](https://github.com/rosepetal-ai/rosepetal-research-RP-IAD) is a research project focused on the **construction of a large-scale industrial anomaly detection dataset**. *The repository is currently private and will be published publicly soon.*
 
 Most public anomaly detection benchmarks are built from a small number of object categories, limited defect variability, and controlled acquisition conditions. RP-IAD aims to build a dataset that better reflects the realities of industrial inspection:
 
