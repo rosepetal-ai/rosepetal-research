@@ -54,7 +54,7 @@ The four public repositories are Python projects built on PyTorch. The README of
 | Project | Requirements | License |
 |---|---|---|
 | [Detector-to-Scout Distillation](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) | Python 3.10 or newer, PyTorch 2.1 or newer, timm, SciPy; a CUDA GPU recommended for training | Not chosen yet: no license is granted until the authors publish one |
-| [Selective Inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Python 3.10 or newer, PyTorch 2.0 or newer, timm; a GPU recommended for training | Not chosen yet: no license is granted until the authors publish one |
+| [Selective Inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Python 3.10 or newer, PyTorch 2.0 or newer, timm; a GPU recommended for training | Not chosen yet: to be decided by the authors |
 | [RP-OD](https://github.com/rosepetal-ai/rosepetal-research-RP-OD) | Python 3.10 or newer, PyTorch 2.1 or newer | AGPL-3.0, or a commercial license from Rosepetal AI |
 | [RP-CLASS](https://github.com/rosepetal-ai/rosepetal-research-RP-CLASS) | Python 3.10 or newer, PyTorch 2.5 or newer | AGPL-3.0, or a commercial license from Rosepetal AI |
 
