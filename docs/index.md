@@ -35,10 +35,10 @@ Rosepetal Research currently maintains eight active research projects.
 
 | Project | Focus | Status |
 |---|---|---|
-| [**Detector-to-Scout Distillation**](#detector-to-scout-distillation) | Distilling box-supervised defect detectors into compact image-level anomaly scouts | <Badge type="tip">Public</Badge> |
-| [**Selective Inspection**](#selective-inspection) | Risk-calibrated weak supervision for efficient industrial visual inspection | <Badge type="tip">Public</Badge> |
 | [**RP-OD**](#rp-od) | Real-time object detection without NMS: a dense head proposes, a DETR decoder refines | <Badge type="tip">Public</Badge> |
 | [**RP-CLASS**](#rp-class) | Image classification for industrial vision on small datasets, with ONNX export | <Badge type="tip">Public</Badge> |
+| [**Detector-to-Scout Distillation**](#detector-to-scout-distillation) | Distilling box-supervised defect detectors into compact image-level anomaly scouts | <Badge type="tip">Public</Badge> |
+| [**Selective Inspection**](#selective-inspection) | Risk-calibrated weak supervision for efficient industrial visual inspection | <Badge type="tip">Public</Badge> |
 | [**RP-ForgeVL**](#rp-forgevl) | Few-shot grounded multimodal industrial visual inspection | <Badge type="warning">Public release soon</Badge> |
 | [**RP-DETR**](#rp-detr) | Real-time anomaly detection for high-resolution manufacturing inspection | <Badge type="warning">Public release soon</Badge> |
 | [**RP-ProcessLens**](#rp-processlens) | Vision-based process verification from manufacturing video | <Badge type="warning">Public release soon</Badge> |
@@ -53,10 +53,10 @@ The four public repositories are Python projects built on PyTorch. Each one has 
 
 | Project | Requirements | License | Documentation |
 |---|---|---|---|
-| [Detector-to-Scout Distillation](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) | Python 3.10 or newer, PyTorch 2.1 or newer, timm, SciPy; a CUDA GPU recommended for training | Not chosen yet: no license is granted until the authors publish one | [docs.rosepetal.ai/research/detector-to-scout](https://docs.rosepetal.ai/research/detector-to-scout) |
-| [Selective Inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Python 3.10 or newer, PyTorch 2.0 or newer, timm; a GPU recommended for training | Not chosen yet: to be decided by the authors | [docs.rosepetal.ai/research/selective-inspection](https://docs.rosepetal.ai/research/selective-inspection) |
 | [RP-OD](https://github.com/rosepetal-ai/rosepetal-research-RP-OD) | Python 3.10 or newer, PyTorch 2.1 or newer | AGPL-3.0, or a commercial license from Rosepetal AI | [docs.rosepetal.ai/research/rp-od](https://docs.rosepetal.ai/research/rp-od) |
 | [RP-CLASS](https://github.com/rosepetal-ai/rosepetal-research-RP-CLASS) | Python 3.10 or newer, PyTorch 2.5 or newer | AGPL-3.0, or a commercial license from Rosepetal AI | [docs.rosepetal.ai/research/rp-class](https://docs.rosepetal.ai/research/rp-class) |
+| [Detector-to-Scout Distillation](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) | Python 3.10 or newer, PyTorch 2.1 or newer, timm, SciPy; a CUDA GPU recommended for training | Not chosen yet: no license is granted until the authors publish one | [docs.rosepetal.ai/research/detector-to-scout](https://docs.rosepetal.ai/research/detector-to-scout) |
+| [Selective Inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Python 3.10 or newer, PyTorch 2.0 or newer, timm; a GPU recommended for training | Not chosen yet: to be decided by the authors | [docs.rosepetal.ai/research/selective-inspection](https://docs.rosepetal.ai/research/selective-inspection) |
 
 ## Projects
 

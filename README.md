@@ -24,10 +24,10 @@ Rosepetal Research currently maintains eight active research projects.
 
 | Project | Focus | Repository | Status |
 |---|---|---|---|
-| **Detector-to-Scout Distillation** | Distilling box-supervised defect detectors into compact image-level anomaly scouts | [rosepetal-research-detector-to-scout-distillation](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) | Public |
-| **Selective Inspection** | Risk-calibrated weak supervision for efficient industrial visual inspection | [rosepetal-research-selective-inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Public |
 | **RP-OD** | Real-time object detection without NMS: a dense head proposes, a DETR decoder refines | [rosepetal-research-RP-OD](https://github.com/rosepetal-ai/rosepetal-research-RP-OD) | Public |
 | **RP-CLASS** | Image classification for industrial vision on small datasets, with ONNX export | [rosepetal-research-RP-CLASS](https://github.com/rosepetal-ai/rosepetal-research-RP-CLASS) | Public |
+| **Detector-to-Scout Distillation** | Distilling box-supervised defect detectors into compact image-level anomaly scouts | [rosepetal-research-detector-to-scout-distillation](https://github.com/rosepetal-ai/rosepetal-research-detector-to-scout-distillation) | Public |
+| **Selective Inspection** | Risk-calibrated weak supervision for efficient industrial visual inspection | [rosepetal-research-selective-inspection](https://github.com/rosepetal-ai/rosepetal-research-selective-inspection) | Public |
 | **RP-ForgeVL** | Few-shot grounded multimodal industrial visual inspection | [rosepetal-research-RP-ForgeVL](https://github.com/rosepetal-ai/rosepetal-research-RP-ForgeVL) | Public release soon |
 | **RP-DETR** | Real-time anomaly detection for high-resolution manufacturing inspection | [rosepetal-research-RP-DETR](https://github.com/rosepetal-ai/rosepetal-research-RP-DETR) | Public release soon |
 | **RP-ProcessLens** | Vision-based process verification from manufacturing video | [rosepetal-research-RP-ProcessLens](https://github.com/rosepetal-ai/rosepetal-research-RP-ProcessLens) | Public release soon |
